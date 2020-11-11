@@ -1,0 +1,631 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>SQL Dokumentation - SAEL Projekt 2020 - Personalverwaltung</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-verwendete-elemente" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="SAEL Projekt 2020 - Personalverwaltung" class="md-header-nav__button md-logo" aria-label="SAEL Projekt 2020 - Personalverwaltung">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SAEL Projekt 2020 - Personalverwaltung
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              SQL Dokumentation
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/DerRockWolf/SAEL_Project_Personalverwaltung" title="Quellcode" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Project_Personalverwaltung
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SAEL Projekt 2020 - Personalverwaltung" class="md-nav__button md-logo" aria-label="SAEL Projekt 2020 - Personalverwaltung">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAEL Projekt 2020 - Personalverwaltung
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/DerRockWolf/SAEL_Project_Personalverwaltung" title="Quellcode" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Project_Personalverwaltung
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Übersicht
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../doc-cSharp/" class="md-nav__link">
+      C# Dokumentation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SQL Dokumentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      SQL Dokumentation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-connector" class="md-nav__link">
+    SQlite Connector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-table" class="md-nav__link">
+    CREATE TABLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
+  </a>
+  
+    <nav class="md-nav" aria-label="SELECT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where" class="md-nav__link">
+    WHERE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-by" class="md-nav__link">
+    ORDER BY
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-into" class="md-nav__link">
+    INSERT INTO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    UPDATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-connector" class="md-nav__link">
+    SQlite Connector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-table" class="md-nav__link">
+    CREATE TABLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
+  </a>
+  
+    <nav class="md-nav" aria-label="SELECT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where" class="md-nav__link">
+    WHERE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-by" class="md-nav__link">
+    ORDER BY
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-into" class="md-nav__link">
+    INSERT INTO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    UPDATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="sql-verwendete-elemente">SQL - Verwendete Elemente<a class="headerlink" href="#sql-verwendete-elemente" title="Permanent link">&para;</a></h1>
+<p>Dokumentation aller verwendeten SQL Elemente.</p>
+<h2 id="sqlite">SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h2>
+<p>SQLite ist eine freie prozessintegrierte Programmbibliothek, welche eine in sich geschlossene, serverlose, konfigurationsfreie, transaktionale SQL-Datenbank-Engine ohne Server implementiert.    <br />
+SQLite Datenbanken sind sehr portabel, da sich alle Tabellen, etc. in einer einzigen Datei befinden.</p>
+<p>SQLite Datenbanken sind <code>serverless</code>, sie benötigen keinen Serverprozess, welcher sich zwischen der Datenbank und dem Programm befindet. Die Prozesse, die Daten lesen und schreiben greifen direkt auf die Datenbankdatei zu.</p>
+<p>Außerdem ist die Bibliothek sehr kompakt (~600 KiB) und Open Source.</p>
+<p>SQLite wird wahrscheinlich mehr als alle anderen Datenbank-Engines zusammen verwendet und hat daher eine sehr hohe Verbreitung.</p>
+<p>Bei Tabellen von SQLite Datenbanken gibt es standardmäßig immer eine Spalte <code>rowid</code>, welche die <code>primary keys</code> der Reihen darstellt.<br />
+Diese Schlüssel dienen dazu eine Reihe unabhängig von ihrem Inhalt identifizieren zu können. Primär Schlüssel sind immer einzigartig und dürfen sich nicht ändern.</p>
+<h2 id="sqlite-connector">SQlite Connector<a class="headerlink" href="#sqlite-connector" title="Permanent link">&para;</a></h2>
+<p><a href="https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki">System.Data.SQLite</a>, ein ADO.NET-Provider für SQLite Datenbanken, welcher auch als <a href="https://www.nuget.org/packages/System.Data.SQLite/">NuGet-Paket</a> zu verfügung gestellt wird und die Möglichkeit bietet mit SQLite Datenbanken zu arbeiten hat folgende Klassen und Methoden, welche wir verwendet haben:</p>
+<ul>
+<li>Mit der Klasse <code>SQLiteConnection</code> und dessen standard <code>Constructor</code> können die <code>Connectoren</code> konstruiert werden. Als Parameter wird der <code>ConnectionString</code> übergeben.</li>
+<li>Mithilfe der untergeordneten Methode <code>CreateFile</code> kann einfach eine neue Datenbankdatei am übergebenen Pfad erstellt werden</li>
+<li>
+<p>Mit der Klasse <code>SQLiteCommand</code> und dem erstellten <code>SQLiteConnection</code> Objekt kann ein neues <code>SQLiteCommand</code> Objekt erzeugt werden.</p>
+</li>
+<li>
+<p>Mit der Methode <code>Open</code> eines <code>Connectors</code> wird die Verbindung zur Datenbankdatei mithilfe der Parameter aus <code>SQLiteConnection.ConnectionString</code> aufgebaut.</p>
+</li>
+<li>
+<p>Mit der Methode <code>Close</code> wird die bestehende Verbindung geschlossen.</p>
+</li>
+<li>
+<p>Dem String <code>SQLiteCommand.CommandText</code> werden die SQL Queries zugewiesen.</p>
+</li>
+<li>Die Methode <code>SQLiteCommand.ExecuteReader</code> sendet den Query an die Datenbankdatei und erzeugt eine neue <code>SQLiteDataReader</code> Klasse aus der Antwort.</li>
+<li>Mit der <code>Read</code> Methode der <code>SQLiteDataReader</code> Klasse wird die nächste Reihe der Antwort gelesen. Gibt <code>true</code> zurück wenn eine neue Reihe erfolgreich geladen wurde.<ul>
+<li>Nach ausführen von <code>Read</code> kann auf die einzelnen Spalten der Reihe mit einem Index zugegriffen werden.</li>
+<li>Mit hilfe von z.B. <code>GetInt32</code> wird die Spalte als <code>int</code> abgerufen.</li>
+</ul>
+</li>
+</ul>
+<h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
+<p>SQL (Structured Query Language) ist eine Datenbanksprache zur Definition von Datenstrukturen in realtionalen Datenbanken sowie zum Bearbeiten (Einfügen, Verändern, Löschen) und Abfragen von Daten einer relationalen Datenbank.</p>
+<p>Folgende SQL Elemente haben wir verwendet:</p>
+<h3 id="create-table">CREATE TABLE<a class="headerlink" href="#create-table" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">CREATE TABLE</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="p">(</span> <span class="n">column_name1</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> <span class="n">column_name2</span> <span class="nb">INTEGER</span> <span class="p">);</span>
+</code></pre></div>
+<p>Dieser SQL String erstellt eine Tabelle mit dem Namen <code>table_name</code>, zwei Spalten mit den Namen <code>column_name1</code>, <code>column_name2</code>, den Datentypen <code>TEXT</code>, <code>INTEGER</code> und der Bedingung das Spalte  <code>column_name1</code> <code>NOT NULL</code> sein muss.</p>
+</li>
+</ul>
+<h3 id="select">SELECT<a class="headerlink" href="#select" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">SELECT</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</code></pre></div>
+<p>Ruft alle Spalten und alle Reihen der Tabelle <code>table_name</code> ab. Mit <code>LIMIT 1000</code> werden nur die ersten 1000 Einträge abgerufen. <br />
+Mit <code>SELECT COUNT(*) FROM table_name</code> kann in einer SQLite Datenbank die Anzahl der Zeihen gezählt werden.</p>
+<h4 id="where">WHERE<a class="headerlink" href="#where" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">WHERE</label><div class="tabbed-content"></div>
+</div>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">column_name1</span> <span class="o">=</span> <span class="ss">&quot;text&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Ruft alle Spalten und alle Reihen der Tabelle <code>table_name</code> ab, die in Spalte <code>column_name1</code> den Inhalt <code>text</code> haben.<br />
+Um die Suche zu verfeinern können mehrere <code>WHERE</code> Klauseln mit <code>AND</code>, <code>OR</code> oder <code>NOT</code> verknüpft werden.</p>
+<h4 id="order-by">ORDER BY<a class="headerlink" href="#order-by" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">ORDER BY</label><div class="tabbed-content"></div>
+</div>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">column_name1</span><span class="p">,</span> <span class="n">column_name2</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div>
+<p>Dieser Query sortiert die Antwort aufsteigend, zuerst nach <code>column_name1</code> und anschließend nach <code>column_name2</code>.<br />
+Um absteigend zu sortieren wird statt <code>ASC</code> <code>DESC</code> verwendet.</p>
+</li>
+</ul>
+<h3 id="insert-into">INSERT INTO<a class="headerlink" href="#insert-into" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">INSERT INTO</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column_name1</span><span class="p">,</span> <span class="n">column_name2</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;text&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+</code></pre></div>
+<p>Fügt eine neue Reihe in die Tabelle <code>table_name</code> mit <code>text</code> für <code>column_name1</code> und <code>42</code> für <code>column_name2</code> hinzu. </p>
+</li>
+</ul>
+<h3 id="update">UPDATE<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">UPDATE</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span> <span class="k">table_name</span> <span class="k">SET</span> <span class="n">column_name1</span> <span class="o">=</span> <span class="ss">&quot;TEXT&quot;</span><span class="p">,</span> <span class="n">column_name2</span> <span class="o">=</span> <span class="mi">17</span> <span class="k">WHERE</span> <span class="n">rowid</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>Aktualisiert die Reihe mit der <code>rowid = 10</code> in der Tabelle <code>table_name</code>, sodass <code>column_name</code> <code>TEXT</code> beinhaltet und <code>column_name2</code> <code>17</code>.<br />
+Hier ist es sehr wichtig nicht eine <code>WHERE</code> Klausel zu vergessen, da sonst alle Reihen der Tabelle mit den Werten überschrieben werden würden.</p>
+</li>
+</ul>
+<h3 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">DELETE</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">rowid</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</code></pre></div>
+<p>Löscht die Reihe mit der <code>rowid = 11</code> in der Tabelle <code>table_name</code>.<br />
+Hier ist es ebenfalls wichtig eine <code>WHERE</code> Klausel zu verwenden, da sonst alle Reihen der Tabelle gelöscht werden würden.</p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../doc-cSharp/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Zurück
+                </span>
+                C# Dokumentation
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

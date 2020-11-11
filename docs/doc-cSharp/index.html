@@ -1,0 +1,1285 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>C# Dokumentation - SAEL Projekt 2020 - Personalverwaltung</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c-verwendete-elemente" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="SAEL Projekt 2020 - Personalverwaltung" class="md-header-nav__button md-logo" aria-label="SAEL Projekt 2020 - Personalverwaltung">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SAEL Projekt 2020 - Personalverwaltung
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              C# Dokumentation
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/DerRockWolf/SAEL_Project_Personalverwaltung" title="Quellcode" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Project_Personalverwaltung
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SAEL Projekt 2020 - Personalverwaltung" class="md-nav__button md-logo" aria-label="SAEL Projekt 2020 - Personalverwaltung">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAEL Projekt 2020 - Personalverwaltung
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/DerRockWolf/SAEL_Project_Personalverwaltung" title="Quellcode" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Project_Personalverwaltung
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Übersicht
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C# Dokumentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      C# Dokumentation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verzweigungen-conditional-statements" class="md-nav__link">
+    Verzweigungen (Conditional Statements)
+  </a>
+  
+    <nav class="md-nav" aria-label="Verzweigungen (Conditional Statements)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-else" class="md-nav__link">
+    IF &amp; ELSE
+  </a>
+  
+    <nav class="md-nav" aria-label="IF &amp; ELSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-bedingung" class="md-nav__link">
+    IF-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#else-bedingung" class="md-nav__link">
+    ELSE-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#else-if-bedingung" class="md-nav__link">
+    ELSE IF'-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gesamter-if-block-bedingung" class="md-nav__link">
+    Gesamter If-Block-Bedingung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-case" class="md-nav__link">
+    Switch Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausnahmen-exceptions" class="md-nav__link">
+    Ausnahmen (Exceptions)
+  </a>
+  
+    <nav class="md-nav" aria-label="Ausnahmen (Exceptions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    Try Catch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schleifen-loops" class="md-nav__link">
+    Schleifen (Loops)
+  </a>
+  
+    <nav class="md-nav" aria-label="Schleifen (Loops)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do-while-schleifen" class="md-nav__link">
+    do while-Schleifen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-schleifen" class="md-nav__link">
+    while-Schleifen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-schleifen" class="md-nav__link">
+    for-Schleifen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenstrukturen" class="md-nav__link">
+    Datenstrukturen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datenstrukturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mehrdimensionale-arrays" class="md-nav__link">
+    Mehrdimensionale Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    Listen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodenfunktionen" class="md-nav__link">
+    Methoden/Funktionen
+  </a>
+  
+    <nav class="md-nav" aria-label="Methoden/Funktionen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundlagen" class="md-nav__link">
+    Grundlagen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-mit-argumenten" class="md-nav__link">
+    Methoden mit Argumenten
+  </a>
+  
+    <nav class="md-nav" aria-label="Methoden mit Argumenten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumente-per-referenz-ubergeben" class="md-nav__link">
+    Argumente per Referenz übergeben
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-mit-ruckgabewert" class="md-nav__link">
+    Methoden mit Rückgabewert
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filewriterfilereader" class="md-nav__link">
+    FileWriter/FileReader
+  </a>
+  
+    <nav class="md-nav" aria-label="FileWriter/FileReader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-writer" class="md-nav__link">
+    File Writer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-reader" class="md-nav__link">
+    File Reader
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../doc-SQL/" class="md-nav__link">
+      SQL Dokumentation
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verzweigungen-conditional-statements" class="md-nav__link">
+    Verzweigungen (Conditional Statements)
+  </a>
+  
+    <nav class="md-nav" aria-label="Verzweigungen (Conditional Statements)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-else" class="md-nav__link">
+    IF &amp; ELSE
+  </a>
+  
+    <nav class="md-nav" aria-label="IF &amp; ELSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-bedingung" class="md-nav__link">
+    IF-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#else-bedingung" class="md-nav__link">
+    ELSE-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#else-if-bedingung" class="md-nav__link">
+    ELSE IF'-Bedingung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gesamter-if-block-bedingung" class="md-nav__link">
+    Gesamter If-Block-Bedingung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-case" class="md-nav__link">
+    Switch Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausnahmen-exceptions" class="md-nav__link">
+    Ausnahmen (Exceptions)
+  </a>
+  
+    <nav class="md-nav" aria-label="Ausnahmen (Exceptions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    Try Catch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schleifen-loops" class="md-nav__link">
+    Schleifen (Loops)
+  </a>
+  
+    <nav class="md-nav" aria-label="Schleifen (Loops)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do-while-schleifen" class="md-nav__link">
+    do while-Schleifen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-schleifen" class="md-nav__link">
+    while-Schleifen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-schleifen" class="md-nav__link">
+    for-Schleifen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenstrukturen" class="md-nav__link">
+    Datenstrukturen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datenstrukturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mehrdimensionale-arrays" class="md-nav__link">
+    Mehrdimensionale Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    Listen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodenfunktionen" class="md-nav__link">
+    Methoden/Funktionen
+  </a>
+  
+    <nav class="md-nav" aria-label="Methoden/Funktionen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundlagen" class="md-nav__link">
+    Grundlagen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-mit-argumenten" class="md-nav__link">
+    Methoden mit Argumenten
+  </a>
+  
+    <nav class="md-nav" aria-label="Methoden mit Argumenten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumente-per-referenz-ubergeben" class="md-nav__link">
+    Argumente per Referenz übergeben
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-mit-ruckgabewert" class="md-nav__link">
+    Methoden mit Rückgabewert
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filewriterfilereader" class="md-nav__link">
+    FileWriter/FileReader
+  </a>
+  
+    <nav class="md-nav" aria-label="FileWriter/FileReader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-writer" class="md-nav__link">
+    File Writer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-reader" class="md-nav__link">
+    File Reader
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="c-verwendete-elemente">C# - Verwendete Elemente<a class="headerlink" href="#c-verwendete-elemente" title="Permanent link">&para;</a></h1>
+<p>Dokumentation aller verwendeten Elemente aus C# mitsamt Codebeispielen <!--und implementation in Python.--> (Verwendete <a href="../doc-OOP">OOP Elemente</a>)</p>
+<h2 id="verzweigungen-conditional-statements">Verzweigungen (Conditional Statements)<a class="headerlink" href="#verzweigungen-conditional-statements" title="Permanent link">&para;</a></h2>
+<p>Mithilfe von Verzweigungen können verschieden Programmabschnitte unter bestimmten Bedingungen ausgeführt werden.</p>
+<h3 id="if-else"><ins>IF &amp; ELSE</ins><a class="headerlink" href="#if-else" title="Permanent link">&para;</a></h3>
+<p>Verzweigungen innerhalb eines Programms werden durch Bedingungen entschieden.
+Diese Bedingungen können mit <ins>IF &amp; ELSE</ins> realisiert werden. </p>
+<p>Im Folgegeneden Code-Beispiel wird überprüft, ob die <ins>Variable</ins> <code>Integer</code>
+den Wert <code>'8'</code> enhält.   <br />
+Wenn diese Bedingung zutrifft, wird der sogenannte <ins>IF-Codeblock</ins> ausgeführt und dieser gibt anschließend in einer <code>MessageBox</code> den Text <code>"Die Zahl hat den Wert '8'"</code> aus.</p>
+<h4 id="if-bedingung"><ins>IF-Bedingung</ins><a class="headerlink" href="#if-bedingung" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">8</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;8&#39; &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span>
+
+    <span class="s">&quot;Die Zahl hat den Wert &#39;8&#39; &quot;</span>
+</code></pre></div>
+</div>
+</div>
+<h4 id="else-bedingung"><ins>ELSE-Bedingung</ins><a class="headerlink" href="#else-bedingung" title="Permanent link">&para;</a></h4>
+<p><code>else</code> kann benutzt werden, um festzulegen, welcher Code-Block ausgeführt wird, wenn die vorherige <ins>IF-Bedingung</ins> <code>false</code> ist.</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">6</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">6</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;8&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat nicht den Wert &#39;8&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span>
+
+    <span class="s">&quot;Die Zahl hat nicht den Wert &#39;8&#39;.&quot;</span>
+</code></pre></div>
+</div>
+</div>
+<p><br/></p>
+<h4 id="else-if-bedingung"><ins>ELSE IF'-Bedingung</ins><a class="headerlink" href="#else-if-bedingung" title="Permanent link">&para;</a></h4>
+<p>Falls eine zusätzliche Bedingung neben der <ins>IF-Bedingung</ins> hinzugefügt werden soll, kann dies mit <code>Else if</code> realisiert werden.</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">8</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;8&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;1&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span> 
+
+    <span class="s">&quot;Die Zahl hat den Wert &#39;1&#39;.&quot;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Um in den IF &amp; ELSE-Bedingungen z.B mehrere Werte abzufragen, gibt es die Möglichkeit, <ins>AND</ins> und <ins>OR</ins> Operatoren zu verwenden. Hier zu können Sie im "Kopf" der IF &amp; ELSE-Bedingung die folgenden Zeichen angeben: <code>|</code> für OR/oder und <code>&amp;</code> für AND/und. Wie Sie die Operatoren im Programmcode implementieren, sehen Sie im nächsten Code-Beispiel.</p>
+<h4 id="gesamter-if-block-bedingung"><ins>Gesamter If-Block-Bedingung</ins><a class="headerlink" href="#gesamter-if-block-bedingung" title="Permanent link">&para;</a></h4>
+<p>Ein <code>If-Else</code> Codeblock könnte dann zum Beispiel so aussehen:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">4</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">8</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;8&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">Integer</span> <span class="p">==</span> <span class="m">1</span> <span class="p">|</span> <span class="n">Integer</span> <span class="p">==</span> <span class="m">7</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat entweder den Wert &#39;1&#39; oder &#39;7&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span> 
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat weder den Wert &#39;1&#39; noch den Wert &#39;8&#39;.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span> 
+
+    <span class="s">&quot;Die Zahl hat weder die Werte &#39;1&#39;, &#39;7&#39; noch den Wert &#39;8&#39;.&quot;</span>
+</code></pre></div>
+</div>
+</div>
+<p><br/></p>
+<h3 id="switch-case">Switch Case<a class="headerlink" href="#switch-case" title="Permanent link">&para;</a></h3>
+<p>Eine andere Möglichkeit, um Bedingungen zu realisieren, ist das sogenannte <code>Switch Case</code>.       <br />
+Der Vorteile von Switch Case gegenüber <code>If-Else</code> sind, dass jenes ab fünf Bedingungen effizierter, schneller und übersichtlicher ist.</p>
+<p>Die Switch Case Syntax ist wie folgend:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+
+<span class="k">switch</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="s">&quot;0&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;0&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;1&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;1&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;2&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;2&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;3&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;3&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;4&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;4&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;5&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;5&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&quot;6&quot;</span><span class="p">:</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die Zahl hat den Wert &#39;6&#39;.&quot;</span> <span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="n">Ausgabe</span><span class="p">:</span> 
+
+        <span class="s">&quot;Die Zahl hat den Wert 5&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><br/><br/></p>
+<h2 id="ausnahmen-exceptions">Ausnahmen (Exceptions)<a class="headerlink" href="#ausnahmen-exceptions" title="Permanent link">&para;</a></h2>
+<h3 id="try-catch">Try Catch<a class="headerlink" href="#try-catch" title="Permanent link">&para;</a></h3>
+<p>Um Programmabstürze zu vermeiden, kann <code>Try &amp; Catch</code> (Versuchen &amp; (ab)fangen) verwendet werden. Mit diesem ist es möglich, den Programmfehler und den damit verbunden stop der Anwendung zu verhindern und z. B. eine eigene Fehlerbehandlung zu implementieren.</p>
+<p>Hier Beispiel, wie <code>Try &amp; Catch</code> im Programmcode eingesetzt werden könnte:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">try</span>
+<span class="p">{</span>
+<span class="c1">// Code, der ausgeführt werden soll.</span>
+<span class="p">}</span>
+<span class="k">catch</span>
+<span class="p">{</span>
+    <span class="c1">// Mögliche Fehlerbehandlung.</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="schleifen-loops">Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Permanent link">&para;</a></h2>
+<p>Schleifen führen einen bestimmten Code-Block so lange aus, bis eine angegebene Bedingung erreicht ist.</p>
+<p>Es gibt drei verschiedene Arten von Schleifen:
+<br/></p>
+<ul>
+<li>
+<p><strong>Nicht abweisende Schleifen.</strong> <br/>
+     Beispiel: die <code>do-while</code>-Schleife.
+    <br/></p>
+</li>
+<li>
+<p><strong>Abweisende Schleifen.</strong><br/>
+     Beispiel: die <code>while</code>-Schleife.
+ <br/></p>
+</li>
+<li>
+<p><strong>Zählschleifen.</strong><br/>
+     Beispiel: die <code>for</code>-Schleife.</p>
+</li>
+</ul>
+<h3 id="do-while-schleifen">do while-Schleifen<a class="headerlink" href="#do-while-schleifen" title="Permanent link">&para;</a></h3>
+<p>Die <code>do while</code> ist eine fußgesteuerte Schleife, dass bedeutet, dass die angegebene Bedingung erst am Ende ("Fuß") der Schleife überprüft wird.   </p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="k">do</span> 
+<span class="p">{</span>
+    <span class="n">Integer</span><span class="p">++;</span>
+<span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">integer</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>Das Programm wird die Schleife verlassen, nachdem die <ins>Variable</ins> <code>Integer</code> den Wert <code>'10'</code> erreicht hat und dadurch die Bedingung nicht mehr erfüllt wird.
+<br></p>
+<h3 id="while-schleifen">while-Schleifen<a class="headerlink" href="#while-schleifen" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">integer</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Integer</span><span class="p">++;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><br>
+Die Schleife wird verlassen, nachdem die <ins>Variable</ins> den Wert <code>'10'</code> erreicht hat und dadurch die Bedingung nicht mehr wahr ist (<code>'10'</code> ist nicht kleiner als <code>'10'</code> )</p>
+<h3 id="for-schleifen">for-Schleifen<a class="headerlink" href="#for-schleifen" title="Permanent link">&para;</a></h3>
+<p>Die <code>for</code> ist eine Zählschleife. Diese eignet sich gut, um z. B. Variablen hoch- oder herunter zu zählen. Im Schleifenkopf wird die zu überprüfende Variable initialisiert, die Bedingung angegeben und zusätzlich wird festgelegt, was in den Schleifendurchläufen mit der Variable geschieht (z. B. der Wert wird jeweils um 1 erhöht).  </p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">integer</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">integer</span><span class="p">++)</span> 
+<span class="p">{</span>
+    <span class="c1">// Hier kann z. B. der derzeitige Wert der Variable ausgegeben werden.</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">integer</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>Nachdem die <ins>Variable</ins> den Wert <code>'10'</code> erreicht hat, wird der Schleifen-Codeblock nicht mehr ausgeführt und dadurch ist die letzte Zahl, die ausgegeben wird der Integer <code>'9'</code>.</p>
+<h2 id="datenstrukturen">Datenstrukturen<a class="headerlink" href="#datenstrukturen" title="Permanent link">&para;</a></h2>
+<p>Datenstrukturen ermöglichen das strukturierte Speicherung und Abrufen von Daten.</p>
+<h3 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h3>
+<p>Arrays können verwendet werden, um mehrere Variablenwerte in einer einzelnen Variable zu speichern, um damit zu umgehen, dass jeder Wert einzeln deklariert werden muss.</p>
+<p>So kann man zum Beispiel einen (eindimensionalen) <ins>Array</ins> mit der Größe <code>'5'</code> zu deklarieren und initialisieren:</p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="p">[]</span> <span class="n">integer</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="p">[</span><span class="m">5</span><span class="p">];</span>
+</code></pre></div>
+</div>
+</div>
+<p>So könnte man einem Array einzelne Werte zuweisen:</p>
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">integer</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="m">54</span><span class="p">;</span>
+<span class="n">integer</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="m">13</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Es ist auch möglich, dem Array seine Werte direkt bei der Deklarierung zuzuweisen:</p>
+<div class="tabbed-set" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="p">[]</span> <span class="n">integer</span> <span class="p">=</span> <span class="p">{</span><span class="m">45</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span> <span class="m">43</span><span class="p">};</span>
+</code></pre></div>
+</div>
+</div>
+<h4 id="mehrdimensionale-arrays"><ins>Mehrdimensionale Arrays</ins><a class="headerlink" href="#mehrdimensionale-arrays" title="Permanent link">&para;</a></h4>
+<p>Es gibt auch die Möglichkeit, einen mehrdimensionalen Array zu erstellen. Mehrdimensional bedeutet, dass in dem Array nun in den einzelnen Spalten mehrere Werte eingespeichert werden können.</p>
+<p>Um einen Mehrdimensionalen Array zu erzeugen, muss lediglich bei der Initialisierung in den ersten eckigen Klammern ein Komma gesetzt werden.</p>
+<p>Hier ein Code-Beispiel:</p>
+<div class="tabbed-set" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="p">[,]</span> <span class="n">integer</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="p">[</span><span class="m">5</span><span class="p">,</span><span class="m">3</span><span class="p">];</span>
+</code></pre></div>
+</div>
+</div>
+<p>Der Array hat nun sechs Spalten in denen bis zu vier Werte eingespeichet werden können. </p>
+<div class="admonition faq">
+<p class="admonition-title">Warum sechs Spalten und vier Werte?</p>
+<p><strong>Antwort</strong>: </p>
+<p>Das liegt daran, dass Arrays <ins>nullbasierend</ins> sind. Das bedeutet, dass der Array den ersten Variablenwert mit dem Index <code>'0'</code> einspeichert. Deshalb ist der reelle Wert des Arrays immer um einen Integer erhöht.</p>
+</div>
+<p>So könnte dann zum Beispiel ein Wert in einem mehrdimensionalen Array eingespeichert werden:</p>
+<div class="tabbed-set" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">integer</span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="m">45</span><span class="p">;</span>
+<span class="n">integer</span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="m">21</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Um die Größe eines Array flexibel zu gestalten, gibt es die Möglichkeit, ihn mithilfe von Variablen zu deklarieren und zusätzlich mit Ihnen das Einspeichern von einzelnen Werten zu übernehmen.</p>
+<div class="tabbed-set" data-tabs="15:1"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><label for="__tabbed_15_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">78</span><span class="p">;</span> 
+<span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">43</span><span class="p">;</span> 
+<span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">d</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="p">[,]</span> <span class="n">integer</span> <span class="p">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">];</span>
+
+<span class="n">integer</span> <span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="p">=</span> <span class="m">13</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Die Variablen können dann innerhalb des Programmcodes verändert werden und dadurch die Größe des Array und die eingespeicherten Werte beeinflussen.</p>
+<h3 id="listen">Listen<a class="headerlink" href="#listen" title="Permanent link">&para;</a></h3>
+<p>In <ins>Listen</ins> können wie in einem <ins>Array</ins> mehrere Variablenwerte eingespeichert werden.</p>
+<p>Sie kann wie folgend deklariert werden:</p>
+<div class="tabbed-set" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><label for="__tabbed_16_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">Buchstaben</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span>
+</code></pre></div>
+</div>
+</div>
+<p>Um einer Liste einen Wert zuzuweisen, kann man dies z. B. wie in diesem Code-Beispiel tun:</p>
+<div class="tabbed-set" data-tabs="17:1"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><label for="__tabbed_17_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">Buchstaben</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">Buchstaben</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>So können Sie die Werte einer Liste auszugeben:</p>
+<div class="tabbed-set" data-tabs="18:1"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><label for="__tabbed_18_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Buchstaben</span><span class="p">[</span><span class="m">0</span><span class="p">])</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span> <span class="s">&quot;A&quot;</span>
+
+<span class="c1">//Es wird der Wert ausgegeben, welcher als Erstes der Liste hinzugefügt wurde.</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="methodenfunktionen">Methoden/Funktionen<a class="headerlink" href="#methodenfunktionen" title="Permanent link">&para;</a></h2>
+<h3 id="grundlagen">Grundlagen<a class="headerlink" href="#grundlagen" title="Permanent link">&para;</a></h3>
+<p>Methoden werden verwendet, um bestimmte Aktionen im Programmcode auszuführen, Sie werden auch als Funktionen bezeichnet.</p>
+<p>Der Vorteil an Methoden ist, dass Sie mehrmals verwendet werden können. Dadurch kann vermieden werden, den gleichen Code mehrmals zu verfassen und stattdessen eine Methode, die auch diesen Code enthält, aufzurufen.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Es gibt in C# auch vorprogrammierte Methoden. Bekannte Vertreter hiervon sind:</p>
+<p><code>Console.WriteLine</code> oder <code>MessageBox.Show</code></p>
+</div>
+<p>In diesem Code-Beispiel wird ihnen nun gezeigt, wie Sie eine eigene Methode erstellen können. </p>
+<div class="tabbed-set" data-tabs="19:1"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><label for="__tabbed_19_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="k">void</span> <span class="nf">TestMethode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Programmcode der in der Methode ausgeführt werden soll.</span>
+    <span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>Um diese Methode anschließend im Programm aufzurufen, gehen Sie wie folgend vor:</p>
+<div class="tabbed-set" data-tabs="20:1"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><label for="__tabbed_20_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">TestMethode</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">TestMethode</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;das ist ein Test!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Ausgabe</span><span class="p">:</span> <span class="s">&quot;Das ist ein Test&quot;</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="methoden-mit-argumenten">Methoden mit Argumenten<a class="headerlink" href="#methoden-mit-argumenten" title="Permanent link">&para;</a></h3>
+<p>Es gibt die Möglichkeit, einer Methode aus dem Programmcode heraus Information mitzugeben. In C# werden diese Information <ins>Argumente</ins> genannt. Diese <ins>Argumente</ins> können beim Aufruf der Methode in den Klammern mitgegeben werden und anschließend wird im Kopf der Methode angeben, als welchen Datentyp und mit welchem Namen die Methode das mitgegebene Argument verarbeiten soll.</p>
+<p>Hier ein Code-Beispiel zu Argumenten:</p>
+<div class="tabbed-set" data-tabs="21:1"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><label for="__tabbed_21_1">C#</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code>    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">TestMethode</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">void</span> <span class="nf">TestMethode</span><span class="p">(</span><span class="kt">string</span> <span class="n">Begrüßung</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">Begrüßung</span> <span class="p">+</span> <span class="s">&quot;das ist ein Test!&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">Ausgabe</span><span class="p">:</span> <span class="s">&quot;Hallo das ist ein Test!&quot;</span> 
+</code></pre></div>
+<p>In diesem Beispiel wird der Methode die Zeichenfolge <code>"Hallo"</code> als Argument übergeben. Die Methode verarbeitet das Argument als <code>string</code> und gibt diesem den Namen <code>Begrüßung</code>. Anschließend werden der <code>string Begrüßung</code> und die Zeichenfolge <code>"das ist ein Test!"</code> in einer <code>MessageBox</code> ausgegeben.</p>
+<p>Es natürlich auch möglich, mehrere Argumente anzugeben, diese müssen jedoch mit einem Komma getrennt werden:</p>
+<div class="tabbed-set" data-tabs="22:1"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><label for="__tabbed_22_1">C#</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code>      <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">TestMethode</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">,</span> <span class="s">&quot;Max&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">void</span> <span class="nf">TestMethode</span><span class="p">(</span><span class="kt">string</span> <span class="n">Begrüßung</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">Begrüßung</span> <span class="p">+</span> <span class="n">Name</span> <span class="p">+</span> <span class="s">&quot;das ist ein Test!&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">Ausgabe</span><span class="p">:</span> <span class="s">&quot;Hallo Max das ist ein Test!&quot;</span> 
+</code></pre></div>
+<h4 id="argumente-per-referenz-ubergeben"><ins>Argumente per Referenz übergeben</ins><a class="headerlink" href="#argumente-per-referenz-ubergeben" title="Permanent link">&para;</a></h4>
+<p>Wenn Sie einer Methode eine Variable per Argument übergeben, werden diese Variablen sozusagen kopiert und anschließend im Methoden-Cope verwendet. Falls diese "kopierten" Variablen in der Methode verändert werden, hat dies keine Auswirkung auf das Original. Diese Variable bleibt unverändert. Wenn Sie jedoch möchten, dass die Veränderung in der Methode Auswirkungen auf das Original zeigt, können Sie die per Referenz und dem Schlüsselwort <code>ref</code> tun.</p>
+<p>Hier ein Code-Beispiel:</p>
+<div class="tabbed-set" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><label for="__tabbed_23_1">C# mit Referenz</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">TestMethode</span><span class="p">(</span><span class="k">ref</span> <span class="n">x</span><span class="p">,</span> <span class="k">ref</span> <span class="n">y</span><span class="p">);</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+     <span class="cm">/* Die Variablen  &#39;x&#39; und &#39;y&#39; werden der Methode </span>
+<span class="cm">    als Variable &#39;a&#39; und &#39;b&#39; übergeben.</span>
+<span class="cm">    */</span>
+    <span class="k">void</span> <span class="nf">TestMethode</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">x</span> <span class="p">=</span> <span class="m">19</span><span class="p">;</span>
+        <span class="n">y</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Ausgabe</span><span class="p">:</span> <span class="n">x</span> <span class="p">=</span> <span class="m">19</span> <span class="s">&quot;und&quot;</span> <span class="n">y</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><label for="__tabbed_23_2">C# ohne Referenz</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">TestMethode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="cm">/* Die Variablen  &#39;x&#39; und &#39;y&#39; werden der Methode </span>
+<span class="cm">    als Variable &#39;a&#39; und &#39;b&#39; übergeben.</span>
+<span class="cm">    */</span>
+    <span class="k">void</span> <span class="nf">TestMethode</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">a</span> <span class="p">=</span> <span class="m">19</span><span class="p">;</span>
+        <span class="n">b</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Ausgabe</span><span class="p">:</span> <span class="n">x</span> <span class="p">=</span> <span class="m">5</span> <span class="s">&quot;und&quot;</span> <span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+<h4 id="methoden-mit-ruckgabewert"><ins>Methoden mit Rückgabewert</ins><a class="headerlink" href="#methoden-mit-ruckgabewert" title="Permanent link">&para;</a></h4>
+<p>Die vorherigen Methode-Beispiele hatten alle den Datentyp <code>void</code>. Mit diesem ist es nur indirekt möglich, Wert zurückzugeben. Wenn die Methode jedoch mit einem Datentyp wie zum Beispiel <code>int</code> oder <code>double</code> deklariert wird, ist es über das Schlüsselwort <code>return</code> möglich, einen Rückgabewert zu erhalten. </p>
+<p>Wie dies möglich ist, sehen Sie im folgenden Code-Beispiel:</p>
+<div class="tabbed-set" data-tabs="24:1"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><label for="__tabbed_24_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">z</span> <span class="p">=</span> <span class="n">GrößterWert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">GrößterWert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Die größte Zahl ist: &quot;</span> <span class="p">+</span> <span class="n">z</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="kt">int</span> <span class="nf">GrößterWert</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">b</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+   <span class="n">Ausgabe</span><span class="p">:</span> <span class="s">&quot;Die größte Zahl ist: 8&quot;</span>
+</code></pre></div>
+</div>
+</div>
+<p>In diesem Beispiel werden der Methode <code>GrößterWert</code> die beiden Variablen <code>x</code> und <code>y</code> übergeben. Die Methode ermittelt anschließend, welcher der beiden Werte größer ist und übergibt je nachdem den größten Wert. Dieser wird darauffolgend als Variable <code>z</code> in einer <code>MessageBox</code> ausgegeben.</p>
+<h2 id="filewriterfilereader">FileWriter/FileReader<a class="headerlink" href="#filewriterfilereader" title="Permanent link">&para;</a></h2>
+<p>Mit Hilfe des FileWriter und des FileReader ist es möglich, Textdateien zu erstellen und diese bei Start des Programms einzulesen.</p>
+<h3 id="file-writer">File Writer<a class="headerlink" href="#file-writer" title="Permanent link">&para;</a></h3>
+<p>Mit dem <code>File Writer</code> ist es möglich, einen Dateipfad für eine Textdatei anzugeben und dann den Inhalt der Datei zu bestimmen. </p>
+<p>Hier folgendes Code-Beispiel:</p>
+<div class="tabbed-set" data-tabs="25:1"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><label for="__tabbed_25_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">DateiPfad</span> <span class="p">=</span> <span class="s">&quot;C:\tmp\Test.txt&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">Inhalt</span> <span class="p">=</span> <span class="s">&quot;Test&quot;</span><span class="p">;</span>
+<span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">DateiPfad</span> <span class="p">,</span> <span class="n">Inhalt</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</div>
+<p>In diesem Beispiel wird als Pfad <code>"C:\tmp\Test.txt"</code> angegeben. In die Textdatei wird dann ein String mit der Zeichenfolge "Test" hineingeschrieben.</p>
+<h3 id="file-reader">File Reader<a class="headerlink" href="#file-reader" title="Permanent link">&para;</a></h3>
+<p>Mit Hilfe des <code>File Reader</code> ist es im Anschluss möglich, die gespeicherte Textdatei 
+wieder im Programm einzulesen und zum Beispiel einer Variable zuzuweisen.</p>
+<div class="tabbed-set" data-tabs="26:1"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><label for="__tabbed_26_1">C#</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">DateiPfad</span> <span class="p">=</span> <span class="s">&quot;C:\tmp\Test.txt&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">Inhalt</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="n">Inhalt</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">DateiPfad</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Zurück
+                </span>
+                Übersicht
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../doc-SQL/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Weiter
+                </span>
+                SQL Dokumentation
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
